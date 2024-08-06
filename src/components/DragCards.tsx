@@ -1,5 +1,8 @@
-import React from "react"; 
+"use client";
+
+import React, { MutableRefObject, useRef } from "react";
 import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
 export const DragCards = () => {
   return (
@@ -13,22 +16,60 @@ export const DragCards = () => {
 };
 
 const Cards = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   return (
-    <div className="absolute inset-0 z-10">
-      <Card />
+    <div ref={containerRef} className="absolute inset-0 z-10">
+      <Card
+        containerRef={containerRef}
+        src="/images/astronaut.png"
+        alt="Astronaut Image"
+        rotate="6deg"
+        top="20%"
+        left="25%"
+        className="w-36 md:w-56"
+      />
+      <Card
+        containerRef={containerRef}
+        src="/images/astronaut.png"
+        alt="Astronaut Image"
+        rotate="6deg"
+        top="35%"
+        left="25%"
+        className="w-36 md:w-56"
+      />
     </div>
   );
 };
 
-const Card = () => {
+interface Props {
+  containerRef: MutableRefObject<HTMLDivElement | null>;
+  src: string;
+  alt: string;
+  top: string;
+  left: string;
+  rotate: string;
+  className?: string;
+}
+
+const Card = ({
+  src,
+  alt,
+  top,
+  left,
+  rotate,
+  containerRef,
+  className,
+}: Props) => {
   return (
-    <motion.div
+    <motion.img
+      src={src}
+      alt={alt}
       drag
-      dragConstraints={{
-        top: -90,
-        left: -90,
-      }}
-      className="size-56 bg-white"
-    ></motion.div>
+      dragConstraints={containerRef}
+      dragElastic={0.65}
+      style={{ top, left, rotate }}
+      // dragMomentum={false}
+      className={twMerge("absolute w-32 h-32", "md:w-64 md:h-64", className)}
+    ></motion.img>
   );
 };
