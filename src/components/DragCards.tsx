@@ -79,7 +79,6 @@ const Cards = () => {
         left="55%"
         className="w-24 md:w-48"
       />
-      {/* More Card components... */}
     </div>
   );
 };
