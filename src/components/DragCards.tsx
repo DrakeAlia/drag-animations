@@ -22,7 +22,7 @@ const Cards = () => {
       <Card
         containerRef={containerRef}
         src="/images/astronaut.png"
-        alt="Astronaut Image"
+        alt="Example image"
         rotate="6deg"
         top="20%"
         left="25%"
@@ -30,12 +30,48 @@ const Cards = () => {
       />
       <Card
         containerRef={containerRef}
-        src="/images/astronaut.png"
-        alt="Astronaut Image"
-        rotate="6deg"
+        src="/images/astronaut-2.png"
+        alt="Example image"
+        rotate="12deg"
+        top="45%"
+        left="60%"
+        className="w-24 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src="/images/astronaut-3.png"
+        alt="Example image"
+        rotate="-6deg"
+        top="20%"
+        left="40%"
+        className="w-52 md:w-80"
+      />
+      <Card
+        containerRef={containerRef}
+        src="/images/astronaut-4.png"
+        alt="Example image"
+        rotate="8deg"
+        top="50%"
+        left="40%"
+        className="w-48 md:w-72"
+      />
+      <Card
+        containerRef={containerRef}
+        src="/images/astronaut-5.png"
+        alt="Example image"
+        rotate="18deg"
+        top="20%"
+        left="65%"
+        className="w-40 md:w-64"
+      />
+      <Card
+        containerRef={containerRef}
+        src="/images/astronaut-6.png"
+        alt="Example image"
+        rotate="-3deg"
         top="35%"
-        left="25%"
-        className="w-36 md:w-56"
+        left="55%"
+        className="w-24 md:w-48"
       />
     </div>
   );
@@ -69,7 +105,7 @@ const Card = ({
       dragElastic={0.65}
       style={{ top, left, rotate }}
       // dragMomentum={false}
-      className={twMerge("absolute w-32 h-32", "md:w-64 md:h-64", className)}
+      className={twMerge("absolute w-48 bg-neutral-200 p-1 pb-4", className)}
     ></motion.img>
   );
 };
